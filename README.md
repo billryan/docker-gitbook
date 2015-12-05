@@ -34,7 +34,7 @@ gitbook build
 
 ### User Priviledge
 
-Since docker **can not** config uid and gid for shared volume properly(see [Issue #7198](https://github.com/docker/docker/issues/7198)), I simply use `uid=1000` and `gid=100` in the Dockerfile, you'd better build it with your own uid and gid.
+Since docker **can not** config uid and gid for shared volume properly(see [Issue #7198](https://github.com/docker/docker/issues/7198)), you can build it with your own uid and gid in the Dockerfile.
 
 ## Features
 
