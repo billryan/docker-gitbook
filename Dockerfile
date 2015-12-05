@@ -1,4 +1,4 @@
-FROM node:0.12
+FROM nodesource/trusty:0.12.7
 MAINTAINER Bill Ryan <yuanbin2014@gmail.com>
 
 # install Calibre latest and gitbook-cli
