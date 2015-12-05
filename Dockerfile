@@ -2,7 +2,9 @@ FROM nodesource/trusty:0.12.7
 MAINTAINER Bill Ryan <yuanbin2014@gmail.com>
 
 # install Calibre latest and gitbook-cli
-RUN wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py \
+RUN apt-get update \
+        && apt-get install -y wget \
+        && wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py \
         | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()" \
         && npm install gitbook-cli -g \
         && npm install svgexport -g
