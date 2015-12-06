@@ -1,8 +1,10 @@
-FROM nodesource/trusty:0.12.7
+FROM nodesource/trusty:5.0.0
 MAINTAINER Bill Ryan <yuanbin2014@gmail.com>
 
 # install Calibre latest and gitbook-cli
+# install calibre dependencies from Ubuntu repo 
 RUN apt-get update \
+        && apt-get install -y calibre \
         && apt-get install -y wget \
         && wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py \
         | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()" \
