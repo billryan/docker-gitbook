@@ -9,7 +9,7 @@ Docker Hub: <https://hub.docker.com/r/billryan/gitbook/>
 
 ## Usage
 
-Read the official documentaion [GitbookIO/gitbook](https://github.com/GitbookIO/gitbook#how-to-use-it) first.
+Read the official documentation [GitbookIO/gitbook](https://github.com/GitbookIO/gitbook#how-to-use-it) first.
 
 ```bash
 # init
@@ -38,7 +38,22 @@ Since docker **can not** config uid and gid for shared volume properly(see [Issu
 
 ## Features
 
-An elegant CJK-fonts sets built-in.
+Build **your favourite fonts** with GitBook(PDF, EPUB). Visit [billryan/gitbook/tags](https://hub.docker.com/r/billryan/gitbook/tags/) to see whether your favourite languages/fonts are listed here. You can also check the GitHub branch since the docker hub is automated-build from GitHub.
+
+## Contributing
+
+Wanna nice fonts for your GitBook? Here we go!
+
+1. checkout a new branch named with your languages and fonts. The name of languages should follow the [List of ISO 639-2 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes) and [rfc4646](http://www.ietf.org/rfc/rfc4646.txt), and the length of the name should as short as possible.
+```bash
+git checkout -b new-branch master
+```
+2. Modify the following lines with your favourite fonts.
+```bash
+# install fonts
+RUN apt-get update \
+        && apt-get install -y fonts-your-language
+```
 
 ## License
 
