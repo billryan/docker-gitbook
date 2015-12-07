@@ -1,21 +1,26 @@
 FROM nodesource/trusty:5.0.0
 MAINTAINER Bill Ryan <yuanbin2014@gmail.com>
 
-# install Calibre latest and gitbook-cli
-# install calibre dependencies from Ubuntu repo 
-RUN apt-get update \
-        && apt-get install -y calibre wget \
-        && wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py \
-        | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()" \
-        && npm install gitbook-cli -g \
-        && npm install svgexport -g
-
-# replace source.list, add multiverse
+# enable trusty-backports and multiverse(non-free), mirros.mit.edu(default)
 COPY sources.list /etc/apt/sources.list
 
-# install fonts
-#RUN apt-get update \
-#        && apt-get install -y fonts-your-language
+ENV DEBIAN_FRONTEND noninteractive
+
+# install calibre dependencies
+RUN apt-get update && \
+    apt-get install -y wget xz-utils xdg-utils imagemagick
+
+# install Calibre latest
+RUN wget -nv -O- https://raw.githubusercontent.com/kovidgoyal/calibre/master/setup/linux-installer.py \
+        | python -c "import sys; main=lambda:sys.stderr.write('Download failed\n'); exec(sys.stdin.read()); main()"
+
+# install gitbook-cli
+RUN npm install gitbook-cli -g && \
+    npm install svgexport -g
+
+# install fonts and remove extra temp files
+#RUN apt-get install -y fonts-noto-cjk fonts-noto-hinted && \
+#    rm -rf /var/lib/apt/lists/*
 
 # install gitbook versions
 RUN gitbook versions:install latest
