@@ -4,12 +4,10 @@ MAINTAINER Rhett <yuanbin2014@gmail.com>
 # install calibre dependencies
 RUN apt-get update && \
     apt-get install -y calibre && \
+    npm install gitbook-cli -g && \
+    npm install svgexport -g && \
     apt-get clean && \
     rm -rf /var/cache/apt/* /var/lib/apt/lists/*
-
-# install gitbook-cli
-RUN npm install gitbook-cli -g && \
-    npm install svgexport -g
 
 # install fonts and remove extra temp files
 #RUN apt-get install -y fonts-noto-cjk fonts-noto-hinted && \
