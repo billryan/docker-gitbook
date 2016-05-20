@@ -4,32 +4,35 @@ A Docker Container for [gitbook](https://github.com/GitbookIO/gitbook). Inspired
 
 - [grahamc/docker-jekyll](https://github.com/grahamc/docker-jekyll)
 - [tobegit3hub/gitbook-server](https://github.com/tobegit3hub/gitbook-server)
+- [humangeo/gitbook-docker](https://github.com/humangeo/gitbook-docker)
 
 Docker Hub: <https://hub.docker.com/r/billryan/gitbook/>
 
 ## Usage
 
-Read the official documentation [GitbookIO/gitbook](https://github.com/GitbookIO/gitbook#how-to-use-it) first.
+Read the official [GitBook Toolchain Documentation](http://toolchain.gitbook.com/) documentation [GitbookIO/gitbook](https://github.com/GitbookIO/gitbook#how-to-use-it) first.
 
 ```bash
 # init
-docker run --rm -v "$PWD:/gitbook" -p 4000:4000 billryan/gitbook init
+docker run --rm -v "$PWD:/gitbook" -p 4000:4000 billryan/gitbook gitbook init
 # serve
-docker run --rm -v "$PWD:/gitbook" -p 4000:4000 billryan/gitbook serve
+docker run --rm -v "$PWD:/gitbook" -p 4000:4000 billryan/gitbook gitbook serve
 # build
-docker run --rm -v "$PWD:/gitbook" -p 4000:4000 billryan/gitbook build
+docker run --rm -v "$PWD:/gitbook" -p 4000:4000 billryan/gitbook gitbook build
 ```
 
-For short, you can use alias for the long command line text. Just place the alias statement in your `.bashrc` or `.zshrc`.
+For short, you can use alias for the long command line text. Place the alias statement in your `.bashrc` or `.zshrc`.
 
 ```bash
-alias gitbook='docker run --rm -v "$PWD:/gitbook" -p 4000:4000 billryan/gitbook'
+alias gitbook='docker run --rm -v "$PWD":/gitbook -p 4000:4000 billryan/gitbook gitbook'
 # init
 gitbook init
 # serve
 gitbook serve
 # build
 gitbook build
+# pdf output
+gitbook pdf .
 ```
 
 ### User Priviledge
