@@ -12,7 +12,7 @@ RUN apt-get update && \
 # install fonts and remove extra temp files
 #RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list && \
 #    apt-get update && \
-#    apt-get install -y fonts-noto-cjk && \
+#    apt-get install -y fonts-noto fonts-noto-cjk && \
 #    apt-get clean && \
 #    rm -rf /var/cache/apt/* /var/lib/apt/lists/*
 
