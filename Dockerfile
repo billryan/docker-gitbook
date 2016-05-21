@@ -16,6 +16,8 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/so
     apt-get clean && \
     rm -rf /var/cache/apt/* /var/lib/apt/lists/*
 
+RUN wget --no-check-certificate -P /etc/fonts/conf.d/ https://gist.githubusercontent.com/billryan/068cd16baafb933b5ba0530b0f45a16c/raw/0c442104b18b3daf9b61e596e3a48df6debacbe2/20-noto-cjk-zh-hans.conf
+
 # add non-root user(workaround for docker)
 # replace gid and uid with your currently $GID and $UID
 #RUN useradd -m -g 100 -u 1000 gitbook
