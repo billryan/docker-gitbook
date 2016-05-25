@@ -1,4 +1,4 @@
-FROM billryan/gitbook:latest
+FROM billryan/gitbook:base
 MAINTAINER Rhett <yuanbin2014@gmail.com>
 
 # add non-root user(workaround for docker)
@@ -12,6 +12,9 @@ RUN wget -P /raw_fonts https://noto-website.storage.googleapis.com/pkgs/NotoSans
     unzip -o NotoSansCJKTC-hinted.zip && \
     mv -t /usr/share/fonts/noto *-DemiLight.otf *-Bold.otf *-Black.otf && \
     fc-cache -f -v
+
+# install gitbook versions
+RUN gitbook fetch latest
 
 ENV BOOKDIR /gitbook
 
