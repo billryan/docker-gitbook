@@ -6,10 +6,10 @@ MAINTAINER Rhett <yuanbin2014@gmail.com>
 #RUN useradd -m -g 100 -u 1000 gitbook
 #USER gitbook
 
-# install fonts Noto Sans CJK SC for Simplified Chinese
-RUN wget -P /raw_fonts https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKSC-hinted.zip && \
+# install fonts Noto Sans CJK TC for Traditional Chinese
+RUN wget -P /raw_fonts https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKTC-hinted.zip && \
     cd /raw_fonts && mkdir /usr/share/fonts/noto && \
-    unzip -o NotoSansCJKSC-hinted.zip && \
+    unzip -o NotoSansCJKTC-hinted.zip && \
     mv -t /usr/share/fonts/noto *-DemiLight.otf *-Bold.otf *-Black.otf && \
     fc-cache -f -v
 
