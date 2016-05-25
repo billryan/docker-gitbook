@@ -14,4 +14,5 @@ RUN wget -P /tmp/raw_fonts https://github.com/billryan/algorithm-exercise/files/
     cd /tmp/raw_fonts && \
     unzip -o arial.zip && \
     mv -t /usr/share/fonts/truetype Arial*ttf && \
+    rm arial.zip && \
     fc-cache -f -v
