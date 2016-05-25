@@ -3,7 +3,7 @@ MAINTAINER Rhett <yuanbin2014@gmail.com>
 
 # install calibre dependencies and gitbook-cli
 RUN apt-get update && \
-    apt-get install -y calibre && \
+    apt-get install -y unzip calibre && \
     npm install gitbook-cli -g && \
     npm install svgexport -g && \
     apt-get clean && \
