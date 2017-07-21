@@ -7,10 +7,10 @@ MAINTAINER Rhett <yuanbin2014@gmail.com>
 #USER gitbook
 
 # install fonts Noto Sans CJK SC for Simplified Chinese
-RUN wget -P /raw_fonts https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKSC-hinted.zip && \
+RUN wget -P /raw_fonts https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKsc-hinted.zip && \
     cd /raw_fonts && \
     mkdir /usr/share/fonts/noto && \
-    unzip -o NotoSansCJKSC-hinted.zip && \
+    unzip -o NotoSansCJKsc-hinted.zip && \
     mv -t /usr/share/fonts/noto *-DemiLight.otf *-Bold.otf *-Black.otf && \
     rm -r /raw_fonts && \
     fc-cache -f -v
